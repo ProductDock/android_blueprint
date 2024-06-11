@@ -1,4 +1,4 @@
-package com.blueprint.featureA.repository
+package com.blueprint.featureA.data.repository
 
 import com.blueprint.featureA.data.sources.local.FeatureALocalDataSource
 import com.blueprint.featureA.data.sources.remote.FeatureARemoteDataSource

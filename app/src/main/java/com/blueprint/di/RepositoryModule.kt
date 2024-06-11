@@ -1,7 +1,7 @@
 package com.blueprint.di
 
-import com.blueprint.featureA.repository.DefaultFeatureARemoteRepository
-import com.blueprint.featureA.repository.FeatureARemoteRepository
+import com.blueprint.featureA.data.repository.DefaultFeatureARemoteRepository
+import com.blueprint.featureA.data.repository.FeatureARemoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

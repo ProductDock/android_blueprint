@@ -1,4 +1,4 @@
-package com.blueprint.featureA.repository
+package com.blueprint.featureA.data.repository
 
 import com.blueprint.featureA.data.model.local.FeatureAEntity
 import com.blueprint.featureA.data.sources.local.FeatureADao
@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class DefaultFeatureALocalRepository @Inject constructor(
     private val featureADao: FeatureADao
-) : FeatureALocalRepository{
+) : FeatureALocalRepository {
     override suspend fun insertFeatureA(featureAEntity: FeatureAEntity) {
         featureADao.insertFeatureA(featureAEntity)
     }
