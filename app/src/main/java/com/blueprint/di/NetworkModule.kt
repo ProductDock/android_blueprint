@@ -2,7 +2,7 @@ package com.blueprint.di
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.blueprint.featureA.service.FeatureAService
+import com.blueprint.featureA.data.sources.remote.FeatureAService
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides

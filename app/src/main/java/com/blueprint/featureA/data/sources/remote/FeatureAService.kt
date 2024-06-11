@@ -1,6 +1,6 @@
-package com.blueprint.featureA.data_sources.remote
+package com.blueprint.featureA.data.sources.remote
 
-import com.blueprint.featureA.data.remote_model.NetworkFeatureA
+import com.blueprint.featureA.data.model.remote.NetworkFeatureA
 import retrofit2.http.GET
 
 interface FeatureAService {

@@ -1,10 +1,10 @@
-package com.blueprint.featureA.data_sources.local
+package com.blueprint.featureA.data.sources.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.blueprint.featureA.data.local_model.FeatureAEntity
+import com.blueprint.featureA.data.model.local.FeatureAEntity
 
 @Dao
 interface FeatureADao {

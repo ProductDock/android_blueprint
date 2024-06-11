@@ -1,7 +1,7 @@
 package com.blueprint.featureA.repository
 
-import com.blueprint.featureA.data_sources.local.FeatureALocalDataSource
-import com.blueprint.featureA.data_sources.remote.FeatureARemoteDataSource
+import com.blueprint.featureA.data.sources.local.FeatureALocalDataSource
+import com.blueprint.featureA.data.sources.remote.FeatureARemoteDataSource
 import com.blueprint.featureA.domain.FeatureARepository
 import com.blueprint.featureA.domain.model.FeatureA
 import javax.inject.Inject

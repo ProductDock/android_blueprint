@@ -1,4 +1,4 @@
-package com.blueprint.featureA.data_sources.remote
+package com.blueprint.featureA.data.sources.remote
 
 import javax.inject.Inject
 

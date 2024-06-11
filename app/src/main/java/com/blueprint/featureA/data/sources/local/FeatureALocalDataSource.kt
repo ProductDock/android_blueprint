@@ -1,4 +1,4 @@
-package com.blueprint.featureA.data_sources.local
+package com.blueprint.featureA.data.sources.local
 
 import javax.inject.Inject
 
