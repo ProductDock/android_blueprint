@@ -10,7 +10,7 @@ class OfflineFirstFeatureARepository @Inject constructor(
     private val remoteADataSource: FeatureARemoteDataSource,
     private val localDataSource: FeatureALocalDataSource,
 ) : FeatureARepository {
-    override suspend fun getFeaturesA(): List<FeatureA> {
+    override suspend fun getFeaturesA(): Result<List<FeatureA>> {
         TODO("Not yet implemented")
     }
 }

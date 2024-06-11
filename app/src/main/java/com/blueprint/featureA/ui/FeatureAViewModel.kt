@@ -2,8 +2,8 @@ package com.blueprint.featureA.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.blueprint.featureA.domain.FeatureARepository
 import com.blueprint.featureA.domain.model.FeatureA
-import com.blueprint.featureA.repository.FeatureARemoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FeatureAViewModel @Inject constructor(
-    private val featureARemoteRepository: FeatureARemoteRepository
+    private val featureARepository: FeatureARepository,
 ) : ViewModel() {
 
     private val _features = MutableStateFlow(emptyList<FeatureA>())
@@ -21,7 +21,7 @@ class FeatureAViewModel @Inject constructor(
 
     fun getFeaturesA() {
         viewModelScope.launch {
-            _features.value = featureARemoteRepository.getFeaturesA().getOrElse { emptyList() }
+            _features.value = featureARepository.getFeaturesA().getOrElse { emptyList() }
         }
     }
 
