@@ -1,6 +1,6 @@
 package com.blueprint.featureA.repository
 
-import com.blueprint.featureA.domain.FeatureA
+import com.blueprint.featureA.domain.model.FeatureA
 
 interface FeatureARemoteRepository {
 

@@ -2,7 +2,7 @@ package com.blueprint.featureA.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blueprint.featureA.domain.FeatureA
+import com.blueprint.featureA.domain.model.FeatureA
 import com.blueprint.featureA.repository.FeatureARemoteRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
