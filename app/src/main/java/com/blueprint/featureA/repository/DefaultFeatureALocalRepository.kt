@@ -1,25 +1,25 @@
 package com.blueprint.featureA.repository
 
 import com.blueprint.featureA.data.local_model.LocalFeatureA
-import com.blueprint.featureA.service.FeatureALocalService
+import com.blueprint.featureA.data_sources.local.FeatureADao
 import javax.inject.Inject
 
 class DefaultFeatureALocalRepository @Inject constructor(
-    private val featureALocalService: FeatureALocalService
+    private val featureADao: FeatureADao
 ) : FeatureALocalRepository{
     override suspend fun insertFeatureA(localFeatureA: LocalFeatureA) {
-        featureALocalService.insertFeatureA(localFeatureA)
+        featureADao.insertFeatureA(featureAEntity)
     }
 
     override suspend fun updateFeatureA(localFeatureA: LocalFeatureA) {
-        featureALocalService.updateFeatureA(localFeatureA)
+        featureADao.updateFeatureA(featureAEntity)
     }
 
     override suspend fun getFeatureAById(id: Int): LocalFeatureA? {
-        return featureALocalService.getFeatureAById(id)
+        return featureADao.getFeatureAById(id)
     }
 
     override suspend fun deleteFeatureAById(id: Int) {
-        featureALocalService.deleteFeatureAById(id)
+        featureADao.deleteFeatureAById(id)
     }
 }
