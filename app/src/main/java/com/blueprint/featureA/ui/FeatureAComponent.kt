@@ -30,7 +30,7 @@ import com.blueprint.featureA.domain.model.FeatureA
 @Composable
 fun FeatureAScreen(viewModel: FeatureAViewModel) {
     Scaffold { innerPadding ->
-        //viewModel.getFeaturesA()
+        viewModel.getFeaturesA()
         val features = viewModel.features.collectAsStateWithLifecycle()
         Column(
             modifier = Modifier

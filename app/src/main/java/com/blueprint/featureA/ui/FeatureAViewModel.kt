@@ -18,7 +18,6 @@ class FeatureAViewModel @Inject constructor(
     private val _features = MutableStateFlow(emptyList<FeatureA>())
     val features = _features.asStateFlow()
 
-
     fun getFeaturesA() {
         viewModelScope.launch {
             _features.value = featureARepository.getFeaturesA().getOrElse { emptyList() }
