@@ -1,7 +1,5 @@
 package com.blueprint.di
 
-import com.blueprint.featureA.data.repository.DefaultFeatureARemoteRepository
-import com.blueprint.featureA.data.repository.FeatureARemoteRepository
 import com.blueprint.featureA.data.repository.OfflineFirstFeatureARepository
 import com.blueprint.featureA.domain.FeatureARepository
 import dagger.Binds
@@ -13,10 +11,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class RepositoryModule {
-
-    @[Singleton Binds]
-    abstract fun bindFeatureARepository(defaultFeatureARepository: DefaultFeatureARemoteRepository): FeatureARemoteRepository
-
 
     @[Singleton Binds]
     abstract fun bindOfflineFirstFeatureARepository(offlineFirstFeatureARepository: OfflineFirstFeatureARepository): FeatureARepository
