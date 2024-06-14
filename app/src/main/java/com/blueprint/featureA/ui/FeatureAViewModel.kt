@@ -23,7 +23,7 @@ class FeatureAViewModel @Inject constructor(
     fun getFeaturesA() {
         viewModelScope.launch {
             featureARepository.getFeaturesA().map { result ->
-                result.fold(
+                _features.value = result.fold(
                     onSuccess = { it } ,
                     onFailure = { emptyList() },
                 )
