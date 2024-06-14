@@ -19,6 +19,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
@@ -29,61 +30,90 @@ import com.blueprint.featureA.domain.model.FeatureA
 
 @Composable
 fun FeatureAScreen(viewModel: FeatureAViewModel) {
-    Scaffold { innerPadding ->
-        viewModel.getFeaturesA()
-        val features = viewModel.features.collectAsStateWithLifecycle()
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
-            Text(
-                "Welcome",
-                modifier = Modifier
-                    .padding(30.dp)
-            )
-            SpaceList(features = features.value) { }
-        }
-    }
+  val features by viewModel.observableFeatures.collectAsStateWithLifecycle()
+
+  FeaturesAContent(features)
 }
 
 @Composable
-fun SpaceList(features: List<FeatureA>, onCLick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
+private fun FeaturesAContent(features: FeatureAUiState) {
+  Scaffold { innerPadding ->
+    Column(
+      modifier = Modifier
+        .fillMaxSize()
+        .padding(innerPadding)
     ) {
-        LazyHorizontalGrid(
-            rows = GridCells.Fixed(2),
-            contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.fillMaxSize()
-        ) {
-            itemsIndexed(features) { _, item ->
-                Item(featureA = item, onCLick)
-            }
-        }
+      Text(
+        "Welcome",
+        modifier = Modifier
+          .padding(30.dp)
+      )
+      SpaceList(features = features) { }
     }
+  }
+}
+
+@Composable
+fun SpaceList(features: FeatureAUiState, onCLick: () -> Unit) {
+  Box(
+    modifier = Modifier
+      .fillMaxWidth()
+      .height(200.dp)
+  ) {
+
+    when (features) {
+      is FeatureAUiState.Loading -> {
+        Text(
+          text = "Loading...",
+          style = TextStyle(fontSize = 18.sp),
+          textAlign = TextAlign.Center,
+          modifier = Modifier.padding(16.dp),
+        )
+      }
+
+      is FeatureAUiState.Error -> {
+        Text(
+          text = "Error: ${features.message}",
+          style = TextStyle(fontSize = 18.sp),
+          textAlign = TextAlign.Center,
+          modifier = Modifier.padding(16.dp),
+        )
+      }
+
+      is FeatureAUiState.Success -> {
+        LazyHorizontalGrid(
+          rows = GridCells.Fixed(2),
+          contentPadding = PaddingValues(horizontal = 8.dp, vertical = 8.dp),
+          horizontalArrangement = Arrangement.spacedBy(8.dp),
+          verticalArrangement = Arrangement.spacedBy(8.dp),
+          modifier = Modifier.fillMaxSize()
+        ) {
+          itemsIndexed(features.features) { _, item ->
+            Item(featureA = item, onCLick)
+          }
+        }
+
+      }
+    }
+  }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Item(featureA: FeatureA, onCLick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .padding(16.dp)
-            .wrapContentWidth()
-            .wrapContentHeight(),
-        shape = RoundedCornerShape(8.dp),
-        onClick = onCLick
-    ) {
-        Text(
-            text = featureA.string,
-            style = TextStyle(fontSize = 18.sp),
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(16.dp),
-        )
-    }
+  Card(
+    modifier = Modifier
+      .padding(16.dp)
+      .wrapContentWidth()
+      .wrapContentHeight(),
+    shape = RoundedCornerShape(8.dp),
+    onClick = onCLick
+  ) {
+    Text(
+      text = featureA.string,
+      style = TextStyle(fontSize = 18.sp),
+      textAlign = TextAlign.Center,
+      modifier = Modifier.padding(16.dp),
+    )
+  }
 }
