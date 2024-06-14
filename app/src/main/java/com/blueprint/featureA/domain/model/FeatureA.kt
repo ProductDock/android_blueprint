@@ -1,4 +1,4 @@
-package com.blueprint.featureA.domain
+package com.blueprint.featureA.domain.model
 
 data class FeatureA(
     val string: String

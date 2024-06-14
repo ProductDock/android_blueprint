@@ -3,7 +3,7 @@ package com.blueprint.di
 import android.content.Context
 import androidx.room.Room
 import com.blueprint.database.AppDatabase
-import com.blueprint.featureA.service.FeatureALocalService
+import com.blueprint.featureA.data.sources.local.FeatureADao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,6 +26,6 @@ object DatabaseModule {
 
 
     @Provides
-    fun provideFeatureADao(appDatabase: AppDatabase): FeatureALocalService =  appDatabase.featureADao()
+    fun provideFeatureADao(appDatabase: AppDatabase): FeatureADao =  appDatabase.featureADao()
 
 }
