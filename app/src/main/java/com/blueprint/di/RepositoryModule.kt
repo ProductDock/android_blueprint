@@ -13,5 +13,7 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
 
     @[Singleton Binds]
-    abstract fun bindOfflineFirstFeatureARepository(offlineFirstFeatureARepository: OfflineFirstFeatureARepository): FeatureARepository
+    abstract fun bindOfflineFirstFeatureARepository(
+        offlineFirstFeatureARepository: OfflineFirstFeatureARepository
+    ): FeatureARepository
 }
