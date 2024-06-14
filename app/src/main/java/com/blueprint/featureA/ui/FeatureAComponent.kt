@@ -48,13 +48,13 @@ private fun FeaturesAContent(features: FeatureAUiState) {
         modifier = Modifier
           .padding(30.dp)
       )
-      SpaceList(features = features) { }
+      FeatureAList(features = features) { }
     }
   }
 }
 
 @Composable
-fun SpaceList(features: FeatureAUiState, onCLick: () -> Unit) {
+fun FeatureAList(features: FeatureAUiState, onCLick: () -> Unit) {
   Box(
     modifier = Modifier
       .fillMaxWidth()
