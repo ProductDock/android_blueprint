@@ -6,5 +6,5 @@ import retrofit2.http.GET
 interface FeatureAService {
 
     @GET("featureA")
-    suspend fun fetchFeatureA(): Result<List<NetworkFeatureA>>
+    suspend fun fetchFeaturesA(): Result<List<NetworkFeatureA>>
 }
