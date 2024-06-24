@@ -30,13 +30,13 @@ import com.blueprint.featureA.domain.model.FeatureA
 
 @Composable
 fun FeatureAScreen(viewModel: FeatureAViewModel) {
-  val features by viewModel.observableFeatures.collectAsStateWithLifecycle()
+  val uiState by viewModel.observableFeatures.collectAsStateWithLifecycle()
 
-  FeaturesAContent(features)
+  FeaturesAContent(uiState)
 }
 
 @Composable
-private fun FeaturesAContent(features: FeatureAUiState) {
+private fun FeaturesAContent(uiState: FeatureAUiState) {
   Scaffold { innerPadding ->
     Column(
       modifier = Modifier
@@ -48,20 +48,20 @@ private fun FeaturesAContent(features: FeatureAUiState) {
         modifier = Modifier
           .padding(30.dp)
       )
-      FeatureAList(features = features) { }
+      FeatureAList(uiState = uiState) { }
     }
   }
 }
 
 @Composable
-fun FeatureAList(features: FeatureAUiState, onCLick: () -> Unit) {
+fun FeatureAList(uiState: FeatureAUiState, onCLick: () -> Unit) {
   Box(
     modifier = Modifier
       .fillMaxWidth()
       .height(200.dp)
   ) {
 
-    when (features) {
+    when (uiState) {
       is FeatureAUiState.Loading -> {
         Text(
           text = "Loading...",
@@ -73,7 +73,7 @@ fun FeatureAList(features: FeatureAUiState, onCLick: () -> Unit) {
 
       is FeatureAUiState.Error -> {
         Text(
-          text = "Error: ${features.message}",
+          text = "Error: ${uiState.message}",
           style = TextStyle(fontSize = 18.sp),
           textAlign = TextAlign.Center,
           modifier = Modifier.padding(16.dp),
@@ -88,7 +88,7 @@ fun FeatureAList(features: FeatureAUiState, onCLick: () -> Unit) {
           verticalArrangement = Arrangement.spacedBy(8.dp),
           modifier = Modifier.fillMaxSize()
         ) {
-          itemsIndexed(features.features) { _, item ->
+          itemsIndexed(uiState.features) { _, item ->
             Item(featureA = item, onCLick)
           }
         }
