@@ -12,6 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.blueprint.featureA.ui.FeatureAScreen
 import com.blueprint.featureA.ui.FeatureAViewModel
+import com.blueprint.featureB.ui.FeatureBScreen
+import com.blueprint.featureB.ui.FeatureBViewModel
+import com.blueprint.navigation.Navigation
 import com.blueprint.ui.theme.BlueprintTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,9 +27,11 @@ class MainActivity : ComponentActivity() {
             BlueprintTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(modifier = Modifier.padding(innerPadding)) {
-                        val viewModel by viewModels<FeatureAViewModel>()
-                        FeatureAScreen(viewModel = viewModel)
-
+                        Navigation()
+//                        val viewModel by viewModels<FeatureAViewModel>()
+//                        FeatureAScreen(viewModel = viewModel)
+//                        val viewModel by viewModels<FeatureBViewModel>()
+//                        FeatureBScreen(viewModel = viewModel)
                     }
                 }
             }

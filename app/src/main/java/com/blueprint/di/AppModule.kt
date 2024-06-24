@@ -6,6 +6,8 @@ import com.blueprint.featureA.mapper.DefaultFeatureALocalMapper
 import com.blueprint.featureA.mapper.DefaultFeatureARemoteMapper
 import com.blueprint.featureA.mapper.FeatureALocalMapper
 import com.blueprint.featureA.mapper.FeatureARemoteMapper
+import com.blueprint.featureB.mapper.DefaultFeatureBLocalMapper
+import com.blueprint.featureB.mapper.FeatureBLocalMapper
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -28,5 +30,10 @@ object AppModule {
     fun provideRemoteMapper(): FeatureARemoteMapper = DefaultFeatureARemoteMapper()
     @[Provides Singleton]
     fun provideLocalMapper(): FeatureALocalMapper = DefaultFeatureALocalMapper()
+
+//    @[Provides Singleton]
+//    fun provideBRemoteMapper(): FeatureBRemoteMapper = DefaultFeatureBRemoteMapper()
+    @[Provides Singleton]
+    fun provideBLocalMapper(): FeatureBLocalMapper = DefaultFeatureBLocalMapper()
 
 }

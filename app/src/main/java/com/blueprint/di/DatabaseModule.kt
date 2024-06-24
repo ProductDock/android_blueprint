@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.blueprint.database.AppDatabase
 import com.blueprint.featureA.data.sources.local.FeatureADao
+import com.blueprint.featureB.data.sources.local.FeatureBDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,5 +28,8 @@ object DatabaseModule {
 
     @Provides
     fun provideFeatureADao(appDatabase: AppDatabase): FeatureADao =  appDatabase.featureADao()
+
+    @Provides
+    fun provideFeatureBDao(appDatabase: AppDatabase): FeatureBDao =  appDatabase.featureBDao()
 
 }
