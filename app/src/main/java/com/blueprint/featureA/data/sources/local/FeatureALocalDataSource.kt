@@ -8,4 +8,7 @@ class FeatureALocalDataSource @Inject constructor(
     private val featureADao: FeatureADao,
 ) {
     fun getFeaturesA(): Flow<List<FeatureAEntity>> = featureADao.getFeaturesA()
+    suspend fun insertFeatureA(featureAEntity: FeatureAEntity) {
+        featureADao.updateFeatureA(featureAEntity)
+    }
 }

@@ -5,4 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface FeatureARepository {
     fun getFeaturesA() : Flow<Result<List<FeatureA>>>
+    suspend fun insertFeature(featureA: FeatureA)
 }
