@@ -18,6 +18,7 @@ fun FeatureB1Details(
     detailsId: Int
 ) {
     Column(
+
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
