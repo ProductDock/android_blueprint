@@ -2,8 +2,6 @@ package com.blueprint.featureB.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.blueprint.featureA.domain.model.FeatureA
-import com.blueprint.featureA.ui.FeatureAUiState
 import com.blueprint.featureB.domain.FeatureBRepository
 import com.blueprint.featureB.domain.model.FeatureB
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,10 +18,6 @@ import javax.inject.Inject
 class FeatureBViewModel @Inject constructor(
     private val featureBRepository: FeatureBRepository,
 ) : ViewModel() {
-
-//    val featureBList = listOf(FeatureB("Prvi"), FeatureB("Drugi"), FeatureB("Treci"))
-//
-//    private val _features = MutableStateFlow(featureBList)
 
     val featureBList = listOf(FeatureB("Prvi"), FeatureB("Drugi"), FeatureB("Treci"))
 
